@@ -4,18 +4,14 @@ This is a reference implementation for Rethinking Network Pruning - under the Pr
 
 Please feel free to contact DK Xu (dux19@psu.edu) if you have any question.
 
-
-**************************************************************************************************
 1. There are three sections. One is for MRPC task, one is for QNLI task, and the last is for printing the sparsity of compressed models.
 2. In the section of MRPC, you will first get the results (on eval set) of the finetuned (on MRPC) BERT model, then you will get the results of the provided sparse (x20) model, and final you will compress the BERT model and get the results of your generated sparse model.
 3. The details of the tasks of MRPC and QNLI can be found at https://arxiv.org/pdf/1810.04805.pdf
 4. Please follow HuggingFace prject (https://github.com/huggingface/transformers) to construct GLUE data sets.
 5. Please follow TinyBERT project (https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT) to construct the augmented data for each data set.
-**************************************************************************************************
 
-***************************
+
 ************MRPC***********
-***************************
 
 ## Get the results (on eval set) of the finetuned BERT_base model
 ## You can download the finetuned BERT_base model at https://huggingface.co/textattack/bert-base-uncased-MRPC
@@ -121,10 +117,7 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --
 # f1 = 0.9054054054054055
 
 
-
-***************************
 ************QNLI***********
-***************************
 
 ## Get the results (on eval set) of the finetuned BERT_base model
 ## You can download the finetuned BERT_base model at https://huggingface.co/textattack/bert-base-uncased-QNLI
@@ -171,10 +164,7 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --
 # acc = 0.9021
 # eval_loss = 0.2798
 
-
-***************************
 *******Check Sparsity******
-***************************
 
 ## Check the sparsity of the provided sparse (x20) BERT_base model
 ## MRPC
