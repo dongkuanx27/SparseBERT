@@ -211,6 +211,9 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_functions/task_distill_calculate_
                        --max_seq_length 128
 ```
 
+## To Dos
+* Provide compressed model checkpoints
+* Add codes on SQuAD
 
 ## Acknowledgements
 Our code is developed based on [TinyBERT](https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT) and [Transformers](https://github.com/huggingface/transformers).
