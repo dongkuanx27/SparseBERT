@@ -10,7 +10,7 @@ This is a reference implementation for Rethinking Network Pruning - under the Pr
 
 
 ## MRPC
-* Get the results (on eval set) of the finetuned BERT_base model
+### Get the results (on eval set) of the finetuned BERT_base model
 * You can download the finetuned BERT_base model at https://huggingface.co/textattack/bert-base-uncased-MRPC
 * $/SparseBERT/finetuned_BERTs/bert_base_uncased_mrpc$ contains the finetuned BERT_base model for MRPC
 
@@ -28,16 +28,16 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --
                        --eval_batch_size 32 \
                        --max_seq_length 128
 
-# Results:
-# ***** Eval results *****
-# acc = 0.8676470588235294
-# acc_and_f1 = 0.8877484440875327
-# eval_loss = 0.3441865134697694
-# f1 = 0.9078498293515359
+* Results:
+* Eval results
+* acc = 0.8676470588235294
+* acc_and_f1 = 0.8877484440875327
+* eval_loss = 0.3441865134697694
+* f1 = 0.9078498293515359
 
 
-## Get the results (eval set) of the provided sparse (x20) BERT_base model
-## $/SparseBERT/provided_sparse_BERTs/MRPC/Sparsity0.95/Epochs12$ contains the provided sparse BERT_base model for MRPC
+### Get the results (eval set) of the provided sparse (x20) BERT_base model
+* $/SparseBERT/provided_sparse_BERTs/MRPC/Sparsity0.95/Epochs12$ contains the provided sparse BERT_base model for MRPC
 
 TINYBERT_DIR=/SparseBERT/provided_sparse_BERTs/MRPC/Sparsity0.95/Epochs12
 TASK_DIR=/SparseBERT/glue_data/MRPC
@@ -53,20 +53,20 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --
                        --eval_batch_size 32 \
                        --max_seq_length 128
 
-# Results:
-# ***** Eval results *****
-# acc = 0.8627450980392157
-# acc_and_f1 = 0.8840752517223106
-# eval_loss = 0.3557064888569025
-# f1 = 0.9054054054054055
+* Results:
+* Eval results
+* acc = 0.8627450980392157
+* acc_and_f1 = 0.8840752517223106
+* eval_loss = 0.3557064888569025
+* f1 = 0.9054054054054055
 
 
 
-## Compress the pretrained BERT_base model and generate your generated sparse BERT_base model
-## You can download the BERT_base_uncased model at https://huggingface.co/bert-base-uncased, which serves as the teacher model for knowledge distillation
-## $/SparseBERT/pretrained_BERTs/BERT_base_uncased$ contains the pretrained BERT_base_uncased model, which is used as the initialization for the sparse BERT model
-## Run 12 epochs
-## $/SparseBERT/your_generated_sparse_BERTs/MRPC$ contains your generated sparse model
+### Compress the pretrained BERT_base model and generate your generated sparse BERT_base model
+* You can download the BERT_base_uncased model at https://huggingface.co/bert-base-uncased, which serves as the teacher model for knowledge distillation
+* $/SparseBERT/pretrained_BERTs/BERT_base_uncased$ contains the pretrained BERT_base_uncased model, which is used as the initialization for the sparse BERT model
+* Run 12 epochs
+* $/SparseBERT/your_generated_sparse_BERTs/MRPC$ contains your generated sparse model
 
 
 FT_BERT_BASE_DIR=/SparseBERT/finetuned_BERTs/bert_base_uncased_mrpc
@@ -89,7 +89,7 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill_prune
                        --learning_rate 3e-5
 
 
-## Get the results (eval set) of your generated sparse BERT_base model
+### Get the results (eval set) of your generated sparse BERT_base model
 
 TINYBERT_DIR=/SparseBERT/your_generated_sparse_BERTs/MRPC
 TASK_DIR=/SparseBERT/glue_data/MRPC
@@ -106,18 +106,18 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --
                        --max_seq_length 128
 
 
-# Results:
-# ***** Eval results *****
-# acc = 0.8627450980392157
-# acc_and_f1 = 0.8840752517223106
-# eval_loss = 0.3557064888569025
-# f1 = 0.9054054054054055
+* Results:
+* Eval results
+* acc = 0.8627450980392157
+* acc_and_f1 = 0.8840752517223106
+* eval_loss = 0.3557064888569025
+* f1 = 0.9054054054054055
 
 
-************QNLI***********
+## QNLI
 
-## Get the results (on eval set) of the finetuned BERT_base model
-## You can download the finetuned BERT_base model at https://huggingface.co/textattack/bert-base-uncased-QNLI
+### Get the results (on eval set) of the finetuned BERT_base model
+* You can download the finetuned BERT_base model at https://huggingface.co/textattack/bert-base-uncased-QNLI
 
 TINYBERT_DIR=/SparseBERT/finetuned_BERTs/bert_base_uncased_qnli
 TASK_DIR=/SparseBERT/glue_data/QNLI
@@ -133,13 +133,13 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --
                        --eval_batch_size 32 \
                        --max_seq_length 128
 
-# Results:
-# ***** Eval results *****
-# acc = 0.9136005857587406
-# eval_loss = 0.2559631625462694
+* Results:
+* Eval results
+* acc = 0.9136005857587406
+* eval_loss = 0.2559631625462694
 
 
-## Get the results (eval set) of the provided sparse (x20) BERT_base model
+### Get the results (eval set) of the provided sparse (x20) BERT_base model
 
 TINYBERT_DIR=/SparseBERT/provided_sparse_BERTs/QNLI/Sparsity0.95/Epochs5
 TASK_DIR=/SparseBERT/glue_data/QNLI
@@ -156,15 +156,15 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --
                        --max_seq_length 128
 
 
-# Results:
-# ***** Eval results *****
-# acc = 0.9021
-# eval_loss = 0.2798
+* Results:
+* Eval results
+* acc = 0.9021
+* eval_loss = 0.2798
 
-*******Check Sparsity******
+## Check Sparsity
 
-## Check the sparsity of the provided sparse (x20) BERT_base model
-## MRPC
+### Check the sparsity of the provided sparse (x20) BERT_base model
+### MRPC
 TINYBERT_DIR=/SparseBERT/provided_sparse_BERTs/MRPC/Sparsity0.95/Epochs12
 TASK_DIR=/SparseBERT/glue_data/MRPC
 TASK_NAME=MRPC
@@ -179,8 +179,8 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill_calcu
                        --max_seq_length 128
 
 
-## Check the sparsity of the provided sparse (x20) BERT_base model
-## QNLI
+### Check the sparsity of the provided sparse (x20) BERT_base model
+### QNLI
 TINYBERT_DIR=/SparseBERT/provided_sparse_BERTs/QNLI/Sparsity0.95/Epochs5
 TASK_DIR=/SparseBERT/glue_data/QNLI
 TASK_NAME=QNLI
@@ -195,8 +195,8 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill_calcu
                        --max_seq_length 128
 
 
-## Check the sparsity of the your generated sparse (x20) BERT_base model
-## MRPC
+### Check the sparsity of the your generated sparse (x20) BERT_base model
+### MRPC
 TINYBERT_DIR=/SparseBERT/your_generated_sparse_BERTs/MRPC
 TASK_DIR=/SparseBERT/glue_data/MRPC
 TASK_NAME=MRPC
