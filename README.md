@@ -28,15 +28,13 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --
                        --do_lower_case \
                        --eval_batch_size 32 \
                        --max_seq_length 128
+
+# Eval results: 
+# acc = 0.8676470588235294
+# acc_and_f1 = 0.8877484440875327
+# eval_loss = 0.3441865134697694
+# f1 = 0.9078498293515359
 ```
-
-* Results:
-* Eval results
-* acc = 0.8676470588235294
-* acc_and_f1 = 0.8877484440875327
-* eval_loss = 0.3441865134697694
-* f1 = 0.9078498293515359
-
 
 ### Get the results (eval set) of the provided sparse (x20) BERT_base model
 * $/SparseBERT/provided_sparse_BERTs/MRPC/Sparsity0.95/Epochs12$ contains the provided sparse BERT_base model for MRPC
