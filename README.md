@@ -87,7 +87,8 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_functions/task_distill_prune_simu
                        --eval_step 200 \
                        --aug_train \
                        --do_lower_case \
-                       --learning_rate 3e-5
+                       --learning_rate 3e-5 \
+                       --sparsity_target 0.95
 ```
 
 ### Get the results (eval set) of your generated sparse BERT_base model

@@ -835,6 +835,11 @@ def main():
                         type=float,
                         default=1.)
 
+    parser.add_argument("--sparsity_target",
+                        default=0.95,
+                        type=float,
+                        help="The target sparsity, i.e., removing 95%")
+
     args = parser.parse_args()
     logger.info('The args: {}'.format(args))
 
@@ -1024,10 +1029,10 @@ def main():
 
             # FF nn
             if ('intermediate.dense.weight' in k or 'output.dense.weight' in k) and ('attention.output.dense.weight' not in k):
-                prune_dict[k] = 0.95
+                prune_dict[k] = args.sparsity_target # 0.95
             # Att nn
             if 'attention.self.query.weight' in k or 'attention.self.key.weight' in k or 'attention.self.value.weight' in k or 'attention.output.dense.weight' in k:
-                prune_dict[k] = 0.95
+                prune_dict[k] = args.sparsity_target # 0.95
 
         ## MRPC (1 epoch = 7051 steps)
         # num_steps_per_epoch * 12, 800
@@ -1036,8 +1041,8 @@ def main():
         # num_steps_per_epoch * 6,  400
         # num_steps_per_epoch * 4,  200
 
-        prune = Prune(student_model, num_steps_per_epoch * 0, num_steps_per_epoch * 12, 800, prune_dict, False, False, 'none')
-
+        # prune = Prune(student_model, num_steps_per_epoch * 0, num_steps_per_epoch * 12, 800, prune_dict, False, False, 'none')
+        prune = Prune(student_model, num_steps_per_epoch * 0, num_steps_per_epoch * args.num_train_epochs, round(num_steps_per_epoch * args.num_train_epochs / 100), prune_dict, False, False, 'none') # "round(num_steps_per_epoch * args.num_train_epochs / 100)" indicates we execute 100 model prunings, which works well in general but "100" can be tuned
 
         for epoch_ in trange(int(args.num_train_epochs), desc="Epoch"):
             tr_loss = 0.
