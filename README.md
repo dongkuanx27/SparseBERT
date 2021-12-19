@@ -2,8 +2,8 @@
 
 This is a reference implementation for [Rethinking Network Pruning - under the Pre-train and Fine-tune Paradigm (NAACL'21)](https://arxiv.org/pdf/2104.08682.pdf). Please feel free to contact DK Xu (dux19@psu.edu) if you have any question.
 
-* Three sections. One is for MRPC task, one is for QNLI, and the last is for printing the sparsity.
-* In the section of MRPC, you will first get the results (on eval set) of the finetuned (on MRPC) BERT model, then you will get the results of the provided sparse (x20) model, and finally you will compress the model and get the results of your generated sparse model.
+* Three sections. One is for MRPC, one is for QNLI, and the last is to print sparsity.
+* In MRPC section, you will first get the eval results of the finetuned (on MRPC) BERT, then you will get the results of the provided sparse (x20) model, and finally you will compress the model and get the results of your generated sparse model.
 * The details of the tasks of MRPC and QNLI can be found at <https://arxiv.org/pdf/1810.04805.pdf>
 * Please follow HuggingFace prject (<https://github.com/huggingface/transformers>) to construct GLUE data sets.
 * Please follow TinyBERT project (<https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT>) to construct the augmented data for each data set.
