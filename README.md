@@ -20,7 +20,7 @@ TASK_DIR=/SparseBERT/glue_data/MRPC
 TASK_NAME=MRPC
 OUTPUT_DIR=/SparseBERT/output_glue/tmp1
 
-CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --do_eval \
+CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_functions/task_distill.py --do_eval \
                        --student_model $TINYBERT_DIR \
                        --data_dir $TASK_DIR \
                        --task_name $TASK_NAME \
@@ -45,7 +45,7 @@ TASK_DIR=/SparseBERT/glue_data/MRPC
 TASK_NAME=MRPC
 OUTPUT_DIR=/SparseBERT/output_glue/tmp1
 
-CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --do_eval \
+CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_functions/task_distill.py --do_eval \
                        --student_model $TINYBERT_DIR \
                        --data_dir $TASK_DIR \
                        --task_name $TASK_NAME \
@@ -76,7 +76,7 @@ TASK_DIR=/SparseBERT/glue_data/MRPC
 TASK_NAME=MRPC
 TINYBERT_DIR=/SparseBERT/your_generated_sparse_BERTs/MRPC
 
-CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill_prune_simultaneously.py --teacher_model $FT_BERT_BASE_DIR \
+CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_functions/task_distill_prune_simultaneously.py --teacher_model $FT_BERT_BASE_DIR \
                        --student_model $GENERAL_TINYBERT_DIR \
                        --data_dir $TASK_DIR \
                        --task_name $TASK_NAME \
@@ -97,7 +97,7 @@ TASK_DIR=/SparseBERT/glue_data/MRPC
 TASK_NAME=MRPC
 OUTPUT_DIR=/SparseBERT/output_glue/tmp1
 
-CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --do_eval \
+CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_functions/task_distill.py --do_eval \
                        --student_model $TINYBERT_DIR \
                        --data_dir $TASK_DIR \
                        --task_name $TASK_NAME \
@@ -124,7 +124,7 @@ TASK_DIR=/SparseBERT/glue_data/QNLI
 TASK_NAME=QNLI
 OUTPUT_DIR=/SparseBERT/output_glue/tmp1
 
-CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --do_eval \
+CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_functions/task_distill.py --do_eval \
                        --student_model $TINYBERT_DIR \
                        --data_dir $TASK_DIR \
                        --task_name $TASK_NAME \
@@ -145,7 +145,7 @@ TASK_DIR=/SparseBERT/glue_data/QNLI
 TASK_NAME=QNLI
 OUTPUT_DIR=/SparseBERT/output_glue/tmp1
 
-CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --do_eval \
+CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_functions/task_distill.py --do_eval \
                        --student_model $TINYBERT_DIR \
                        --data_dir $TASK_DIR \
                        --task_name $TASK_NAME \
@@ -168,7 +168,7 @@ TINYBERT_DIR=/SparseBERT/provided_sparse_BERTs/MRPC/Sparsity0.95/Epochs12
 TASK_DIR=/SparseBERT/glue_data/MRPC
 TASK_NAME=MRPC
 OUTPUT_DIR=/SparseBERT/output_glue/tmp1
-CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill_calculate_sparsity.py --do_eval \
+CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_functions/task_distill_calculate_sparsity.py --do_eval \
                        --student_model $TINYBERT_DIR \
                        --data_dir $TASK_DIR \
                        --task_name $TASK_NAME \
@@ -184,7 +184,7 @@ TINYBERT_DIR=/SparseBERT/provided_sparse_BERTs/QNLI/Sparsity0.95/Epochs5
 TASK_DIR=/SparseBERT/glue_data/QNLI
 TASK_NAME=QNLI
 OUTPUT_DIR=/SparseBERT/output_glue/tmp1
-CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill_calculate_sparsity.py --do_eval \
+CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_functions/task_distill_calculate_sparsity.py --do_eval \
                        --student_model $TINYBERT_DIR \
                        --data_dir $TASK_DIR \
                        --task_name $TASK_NAME \
@@ -200,7 +200,7 @@ TINYBERT_DIR=/SparseBERT/your_generated_sparse_BERTs/MRPC
 TASK_DIR=/SparseBERT/glue_data/MRPC
 TASK_NAME=MRPC
 OUTPUT_DIR=/SparseBERT/output_glue/tmp1
-CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill_calculate_sparsity.py --do_eval \
+CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_functions/task_distill_calculate_sparsity.py --do_eval \
                        --student_model $TINYBERT_DIR \
                        --data_dir $TASK_DIR \
                        --task_name $TASK_NAME \
