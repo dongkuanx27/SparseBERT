@@ -5,8 +5,8 @@ This is a reference implementation for [Rethinking Network Pruning - under the P
 * Three sections. One is for MRPC, one is for QNLI, and the last is to print sparsity.
 * In MRPC section, you will first get the eval results of the finetuned (on MRPC) BERT, then you will get the results of the provided sparse (x20) model, and finally you will compress the model and get the results of your generated sparse model.
 * The details of the tasks of MRPC and QNLI can be found at <https://arxiv.org/pdf/1810.04805.pdf>
-* Please follow HuggingFace prject (<https://github.com/huggingface/transformers>) to construct GLUE data sets.
-* Please follow TinyBERT project (<https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT>) to construct the augmented data for each data set.
+* Please follow [HuggingFace prject] (https://github.com/huggingface/transformers) to construct GLUE data sets.
+* Please follow [TinyBERT project] (https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT) to construct the augmented data for each data set.
 
 
 ## MRPC
@@ -211,3 +211,5 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_functions/task_distill_calculate_
 ```
 
 
+## Acknowledgements
+Our code is developed based on [TinyBERT](https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT) and [Transformers](https://github.com/huggingface/transformers).
