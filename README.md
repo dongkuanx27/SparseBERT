@@ -1,8 +1,6 @@
 # SparseBERT-NAACL2021
 
-This is a reference implementation for Rethinking Network Pruning - under the Pre-train and Fine-tune Paradigm (NAACL'21).
-
-Please feel free to contact DK Xu (dux19@psu.edu) if you have any question.
+This is a reference implementation for Rethinking Network Pruning - under the Pre-train and Fine-tune Paradigm (NAACL'21). Please feel free to contact DK Xu (dux19@psu.edu) if you have any question.
 
 1. There are three sections. One is for MRPC task, one is for QNLI task, and the last is for printing the sparsity of compressed models.
 2. In the section of MRPC, you will first get the results (on eval set) of the finetuned (on MRPC) BERT model, then you will get the results of the provided sparse (x20) model, and final you will compress the BERT model and get the results of your generated sparse model.
