@@ -11,11 +11,10 @@ Please feel free to contact DK Xu (dux19@psu.edu) if you have any question.
 5. Please follow TinyBERT project (https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT) to construct the augmented data for each data set.
 
 
-************MRPC***********
-
-## Get the results (on eval set) of the finetuned BERT_base model
-## You can download the finetuned BERT_base model at https://huggingface.co/textattack/bert-base-uncased-MRPC
-## $/SparseBERT/finetuned_BERTs/bert_base_uncased_mrpc$ contains the finetuned BERT_base model for MRPC
+## MRPC
+### Get the results (on eval set) of the finetuned BERT_base model
+### You can download the finetuned BERT_base model at https://huggingface.co/textattack/bert-base-uncased-MRPC
+### $/SparseBERT/finetuned_BERTs/bert_base_uncased_mrpc$ contains the finetuned BERT_base model for MRPC
 
 TINYBERT_DIR=/SparseBERT/finetuned_BERTs/bert_base_uncased_mrpc
 TASK_DIR=/SparseBERT/glue_data/MRPC
