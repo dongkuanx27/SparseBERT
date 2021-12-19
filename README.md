@@ -14,6 +14,7 @@ This is a reference implementation for Rethinking Network Pruning - under the Pr
 * You can download the finetuned BERT_base model at https://huggingface.co/textattack/bert-base-uncased-MRPC
 * $/SparseBERT/finetuned_BERTs/bert_base_uncased_mrpc$ contains the finetuned BERT_base model for MRPC
 
+```
 TINYBERT_DIR=/SparseBERT/finetuned_BERTs/bert_base_uncased_mrpc
 TASK_DIR=/SparseBERT/glue_data/MRPC
 TASK_NAME=MRPC
@@ -27,6 +28,7 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --
                        --do_lower_case \
                        --eval_batch_size 32 \
                        --max_seq_length 128
+```
 
 * Results:
 * Eval results
