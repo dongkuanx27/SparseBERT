@@ -11,10 +11,10 @@ This is a reference implementation for Rethinking Network Pruning - under the Pr
 
 ## MRPC
 ### Get the results (on eval set) of the finetuned BERT_base model
-* You can download the finetuned BERT_base model at https://huggingface.co/textattack/bert-base-uncased-MRPC
-* $/SparseBERT/finetuned_BERTs/bert_base_uncased_mrpc$ contains the finetuned BERT_base model for MRPC
-
 ```
+# You can download the finetuned BERT_base model at https://huggingface.co/textattack/bert-base-uncased-MRPC
+# $/SparseBERT/finetuned_BERTs/bert_base_uncased_mrpc$ contains the finetuned BERT_base model for MRPC
+
 TINYBERT_DIR=/SparseBERT/finetuned_BERTs/bert_base_uncased_mrpc
 TASK_DIR=/SparseBERT/glue_data/MRPC
 TASK_NAME=MRPC
