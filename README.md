@@ -2,8 +2,8 @@
 
 This is a reference implementation for [Rethinking Network Pruning - under the Pre-train and Fine-tune Paradigm (NAACL'21)](https://arxiv.org/pdf/2104.08682.pdf). Please feel free to contact DK Xu (dux19@psu.edu) if you have any question.
 
-* There are three sections. One is for MRPC task, one is for QNLI task, and the last is for printing the sparsity of compressed models.
-* In the section of MRPC, you will first get the results (on eval set) of the finetuned (on MRPC) BERT model, then you will get the results of the provided sparse (x20) model, and final you will compress the BERT model and get the results of your generated sparse model.
+* Three sections. One is for MRPC task, one is for QNLI, and the last is for printing the sparsity.
+* In the section of MRPC, you will first get the results (on eval set) of the finetuned (on MRPC) BERT model, then you will get the results of the provided sparse (x20) model, and finally you will compress the model and get the results of your generated sparse model.
 * The details of the tasks of MRPC and QNLI can be found at <https://arxiv.org/pdf/1810.04805.pdf>
 * Please follow HuggingFace prject (<https://github.com/huggingface/transformers>) to construct GLUE data sets.
 * Please follow TinyBERT project (<https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT>) to construct the augmented data for each data set.
@@ -162,8 +162,7 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill.py --
 
 ## Check Sparsity
 
-### Check the sparsity of the provided sparse (x20) BERT_base model
-### MRPC
+### Check the sparsity of the provided sparse (x20) BERT_base model (MRPC)
 ```
 TINYBERT_DIR=/SparseBERT/provided_sparse_BERTs/MRPC/Sparsity0.95/Epochs12
 TASK_DIR=/SparseBERT/glue_data/MRPC
@@ -179,8 +178,7 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill_calcu
                        --max_seq_length 128
 ```
 
-### Check the sparsity of the provided sparse (x20) BERT_base model
-### QNLI
+### Check the sparsity of the provided sparse (x20) BERT_base model (QNLI)
 ```
 TINYBERT_DIR=/SparseBERT/provided_sparse_BERTs/QNLI/Sparsity0.95/Epochs5
 TASK_DIR=/SparseBERT/glue_data/QNLI
@@ -196,8 +194,7 @@ CUDA_VISIBLE_DEVICES=0 python /SparseBERT/main_function_files/task_distill_calcu
                        --max_seq_length 128
 ```
 
-### Check the sparsity of the your generated sparse (x20) BERT_base model
-### MRPC
+### Check the sparsity of the your generated sparse (x20) BERT_base model (MRPC)
 ```
 TINYBERT_DIR=/SparseBERT/your_generated_sparse_BERTs/MRPC
 TASK_DIR=/SparseBERT/glue_data/MRPC
