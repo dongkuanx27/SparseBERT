@@ -14,7 +14,7 @@ Please feel free to contact DK Xu (dux19@psu.edu) if you have any question.
 **************************************************************************************************
 
 ***************************
-************MRPC***********
+*MRPC*
 ***************************
 
 ## Get the results (on eval set) of the finetuned BERT_base model
