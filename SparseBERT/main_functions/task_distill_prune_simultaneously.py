@@ -67,7 +67,7 @@ class Prune():
         prune_dict={},
         restore_sparsity=False,
         fix_sparsity=False,
-        balance='none', # when not use, set it to 'None'; else, 'fix'
+        balance='none',
         prune_device='default'):
         self._model = model
         self._t = 0
@@ -91,10 +91,6 @@ class Prune():
                 # print('name_para in _prepare:', name)
 
                 if any(name == one for one in self._prune_dict):
-                    if (self._balance == 'fix') and (len(parameter.shape) == 4) and (parameter.shape[1] < 4):
-                        self._prune_dict.pop(name)
-                        print("The parameter %s cannot be balanced pruned and will be deleted from the prune_dict." % name)
-                        continue
                     weight = self._get_weight(parameter)
                     if self._restore_sparsity == True:
                         mask = torch.where(weight == 0, torch.zeros_like(weight), torch.ones_like(weight))
@@ -112,38 +108,6 @@ class Prune():
         else:
             self._mask[name][:] = 0
 
-    def _update_mask_fix_balance(self, name, weight, keep_k, inc_group):
-        if keep_k >= 1:
-            transpose_weight = weight.permute([0, 2, 1, 3])
-            if transpose_weight.shape[-2] % inc_group == 0:
-                mask = self._block_sparsity_balance(transpose_weight, keep_k, inc_group)
-            else:
-                temp1 = transpose_weight.shape[-2]
-                temp4 = (inc_group - 1) * (temp1 // inc_group + 1)
-                keep_k_1 = int(temp4 / temp1 * keep_k)
-                keep_k_2 = keep_k - keep_k_1
-                transpose_weight_1 = transpose_weight[:, :, :temp4, :]
-                transpose_weight_2 = transpose_weight[:, :, temp4:, :]
-                mask_1 = self._block_sparsity_balance(transpose_weight_1, keep_k_1, inc_group - 1)
-                mask_2 = self._block_sparsity_balance(transpose_weight_2, keep_k_2, 1)
-                mask = torch.cat([mask_1, mask_2], 1)
-            self._mask[name][:] = mask
-        else:
-            self._mask[name][:] = 0
-
-    def _block_sparsity_balance(self, transpose_weight, keep_k, inc_group):
-        reshape_weight = transpose_weight.reshape([-1, transpose_weight.shape[-2] * transpose_weight.shape[-1] // inc_group])
-        base_k = keep_k // reshape_weight.shape[0]
-        remain_k = keep_k % reshape_weight.shape[0]
-        if remain_k > 0:
-            thrs = torch.topk(reshape_weight.abs(), base_k + 1)[0][:, -1:]
-        else:
-            thrs = torch.topk(reshape_weight.abs(), base_k)[0][:, -1:]
-        mask = torch.where(reshape_weight.abs() >= thrs, torch.ones_like(reshape_weight), torch.zeros_like(reshape_weight))
-        mask = mask.view(transpose_weight.shape)
-        mask = mask.permute([0, 2, 1, 3])
-        return mask
-
     def _update_mask_conditions(self):
         condition1 = self._fix_sparsity == False
         condition2 = self._pretrain_step < self._t < self._pretrain_step + self._sparse_step
@@ -155,7 +119,6 @@ class Prune():
             weight = parameter.data
         elif self._prune_device == 'cpu':
             weight = parameter.data.to(device=torch.device('cpu'))
-            # weight = parameter.to(device=torch.device('cpu'))
         return weight
 
     def prune(self):
@@ -173,11 +136,6 @@ class Prune():
                         keep_k = int(weight.view(-1).shape[0] * (1.0 - current_sparsity))
                         if self._balance == 'none':
                             self._update_mask(name, weight, keep_k)
-                        elif self._balance == 'fix':
-                            if len(weight.shape) != 4:
-                                self._update_mask(name, weight, keep_k)
-                            else:
-                                self._update_mask_fix_balance(name, weight, keep_k, 4)
                     parameter.mul_(self._mask[name])
 
     # calculate sparsity rate
